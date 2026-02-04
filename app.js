@@ -113,7 +113,7 @@ entradaDeDados.question("Digite o nome do aluno:", function(nome){
                         }
 
                         //criando saída
-                        console.log(`ALUNO:${nomeAluno}\nMÉDIA FINAL:${media}\nSITUAÇÃO:${situaçãoAluno}\n****FINALIZANDO APLICATIVO****`)
+                        console.log(`ALUNO:${nomeAluno}\nMÉDIA FINAL:${media.toFixed(2)}\nSITUAÇÃO:${situaçãoAluno}\n****FINALIZANDO APLICATIVO****`)
                     }
 
 
