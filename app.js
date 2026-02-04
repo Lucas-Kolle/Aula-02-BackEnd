@@ -74,19 +74,33 @@ entradaDeDados.question("digite o nome do aluno:", function(nome){
 
                     //bloquear números maiores que 100 ou menores que zero
                     }else if(nota1 < 0 || nota1> 100 || nota2 < 0 || nota2 > 100 || nota3 <0 || nota3 > 100 || nota4 <0 || nota4 > 100){
-                        console.log("ERRO: O número não pode ser menor que zero ou maior que cem !!! ")
+                        console.log("ERRO: Somente é permitido a entrada de valores entre 0 e 100!!! ")
                     
-                    //continuar o progama
+                    //Validação para a entrada de letras nas notas
+                    //isNaN() -> permite validar se o conteúdo da variável tem algum caracter ao invés de número
+                    }else if(isNaN(nota1) == true || isNaN(nota2) == true || isNaN(nota3) == true || isNaN(nota4) == true){
+                        console.log("ERRO: Não é possível calcular a média com a entrada de letra nas notas do aluno!!!")
+                    
+                    //realizar o cálculo da média    
                     }else{
-                        
-                        //criando variável para guardar a média final
-                        let mediaFinal
 
-                        //realizando o cálculo da média
-                        mediaFinal = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4)) / 4
+                        /*
+                            ****Conversão de tipos de dados****
+                            parseInt() -> Permite converter uma String para um número INTEIRO
+                            parseFloat() -> Permite converter uma String para um número DECIMAL
+                            Number() -> Permite converter uma String para um número DECIMAL ou INTEIRO
+                            String() -> Permite converter um conteúdo para STRING
+                            Boolean() -> Permite converter um conteúdo para BOOLEAND
+                            typeof() -> Permite verificar o tipo de dados de uma variável
+                            toFixed() -> Permite fixar a quantidade de casas decimais.
+                         */
 
-                        //realizando a saída
-                        console.log("A média final do aluno " + nomeAluno + " é:" + mediaFinal)
+                        //criando a variável "media" para guardar o resultado do cálculo
+                        let media
+                        media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4)) / 4
+
+                        //concatenando com a crase
+                        console.log(`O aluno(a) ${nomeAluno} ficou com a média ${media.toFixed(2)}`)
                     }
 
 
