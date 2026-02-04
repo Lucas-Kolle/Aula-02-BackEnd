@@ -16,7 +16,41 @@
 
     const -> Permite a criação de um espaço na memória onde não sofrerá alteração durante o código. A const pode ser utilizada dentro e fora do bloco {}. 
     Dica: Caso você queira diferenciar uma const, var ou let, a const você pode criar com letras MAIÚSCULAS. 
- */
+*/
+
+/*
+    Operadores de comparação
+
+    ==  -> Permite comparar a igualdade de duas conteúdos
+    <   -> Permite comparar valores menores
+    >   -> Permite comparar valores maiores
+    <=  -> Permite comparar valores menores ou iguais 
+    >=  -> Permite comparar valores maiores ou iguais
+    !=  -> Permite comparar a diferença entre conteúdos
+    === -> Permite comparar a igualdade do conteúdo e a igualdade da tipagem da dados 
+    !== -> Permite comparar a diferença de conteúdos e a igualdade de tipos de dados
+    ==! -> Permite comparar a igualdade de conteúdos e a diferença de tipos de dados
+    !=! -> Permite comparar a diferença de conteúdos e a diferença de tipos de dados
+                    
+    Operadores Lógicos
+                        
+    E   -> AND -> &&
+    OU  -> OR  -> ||
+    NÃO -> NOT -> !
+*/
+
+/*
+    ****Conversão de tipos de dados****
+    parseInt() -> Permite converter uma String para um número INTEIRO
+    parseFloat() -> Permite converter uma String para um número DECIMAL
+    Number() -> Permite converter uma String para um número DECIMAL ou INTEIRO
+    String() -> Permite converter um conteúdo para STRING
+    Boolean() -> Permite converter um conteúdo para BOOLEAND
+    typeof() -> Permite verificar o tipo de dados de uma variável
+    toFixed() -> Permite fixar a quantidade de casas decimais.
+*/     
+
+    console.log("****INICIANDO APLICATIVO****")
 
     //import da biblioteca
 const readline = require("readline")
@@ -27,7 +61,7 @@ const entradaDeDados = readline.createInterface({
     output: process.stdout
 })
 //entrada do nome
-entradaDeDados.question("digite o nome do aluno:", function(nome){
+entradaDeDados.question("Digite o nome do aluno:", function(nome){
     //recebe o nome do aluno que foi digitado (cópia de segurança)
     let nomeAluno = nome
 
@@ -40,33 +74,12 @@ entradaDeDados.question("digite o nome do aluno:", function(nome){
             let nota2 = valor2
 
             //entrada nota 3
-            entradaDeDados.question("digite a nota 3:", function(valor3){
+            entradaDeDados.question("Digite a nota 3:", function(valor3){
                 let nota3 = valor3
 
                 //entrada nota 4
                 entradaDeDados.question("Digite a nota 4:", function(valor4){
                     let nota4 = valor4
-
-                    /*
-                        Operadores de comparação
-
-                        ==  -> Permite comparar a igualdade de duas conteúdos
-                        <   -> Permite comparar valores menores
-                        >   -> Permite comparar valores maiores
-                        <=  -> Permite comparar valores menores ou iguais 
-                        >=  -> Permite comparar valores maiores ou iguais
-                        !=  -> Permite comparar a diferença entre conteúdos
-                        === -> Permite comparar a igualdade do conteúdo e a igualdade da tipagem da dados 
-                        !== -> Permite comparar a diferença de conteúdos e a igualdade de tipos de dados
-                        ==! -> Permite comparar a igualdade de conteúdos e a diferença de tipos de dados
-                        !=! -> Permite comparar a diferença de conteúdos e a diferença de tipos de dados
-                    
-                        Operadores Lógicos
-                        
-                        E   -> AND -> &&
-                        OU  -> OR  -> ||
-                        NÃO -> NOT -> !
-                    */
 
                     //bloquear campos vazios
                     if(nomeAluno == "" || nota1 == "" || nota2 == "" || nota3 == "" || nota4 == ""){
@@ -84,23 +97,23 @@ entradaDeDados.question("digite o nome do aluno:", function(nome){
                     //realizar o cálculo da média    
                     }else{
 
-                        /*
-                            ****Conversão de tipos de dados****
-                            parseInt() -> Permite converter uma String para um número INTEIRO
-                            parseFloat() -> Permite converter uma String para um número DECIMAL
-                            Number() -> Permite converter uma String para um número DECIMAL ou INTEIRO
-                            String() -> Permite converter um conteúdo para STRING
-                            Boolean() -> Permite converter um conteúdo para BOOLEAND
-                            typeof() -> Permite verificar o tipo de dados de uma variável
-                            toFixed() -> Permite fixar a quantidade de casas decimais.
-                         */
-
+                        //Criando variável para guardar a situação do aluno
+                        let situaçãoAluno
                         //criando a variável "media" para guardar o resultado do cálculo
                         let media
                         media = (Number(nota1) + Number(nota2) + Number(nota3) + Number(nota4)) / 4
+                        
+                        //criando a condicional que determina a situação do aluno
+                        if(media >= 70){
+                            situaçãoAluno = "APROVADO!!"
+                        }else if(media >= 50 && media < 70){
+                            situaçãoAluno = "RECUPERAÇÃO!!"
+                        }else{
+                            situaçãoAluno = "REPROVADO!!"
+                        }
 
-                        //concatenando com a crase
-                        console.log(`O aluno(a) ${nomeAluno} ficou com a média ${media.toFixed(2)}`)
+                        //criando saída
+                        console.log(`ALUNO:${nomeAluno}\nMÉDIA FINAL:${media}\nSITUAÇÃO:${situaçãoAluno}\n****FINALIZANDO APLICATIVO****`)
                     }
 
 
